@@ -105,10 +105,11 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("/api/remaining")]
-        public int RemainingNotes()
+        public ActionResult<int> RemainingNotes()
         {
             return database.Note.Count(n => n.IsDone == false);
         }
+
 
         [HttpPost("/api/clear-completed")]
         public async Task<ActionResult<Note>> ClearCompleted()
